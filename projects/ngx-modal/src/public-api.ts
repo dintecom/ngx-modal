@@ -3,17 +3,17 @@
  */
 
 export {
-    ModalComponent,
-    ModalComponent as Modal,
-    ModalContentComponent,
-    ModalContentComponent as ModalContent,
-    ModalFooterComponent,
-    ModalFooterComponent as ModalFooter,
-    ModalHeaderComponent,
-    ModalHeaderComponent as ModalHeader
+  ModalComponent as Modal,
+  ModalComponent,
+  ModalContentComponent as ModalContent,
+  ModalContentComponent,
+  ModalFooterComponent as ModalFooter,
+  ModalFooterComponent,
+  ModalHeaderComponent as ModalHeader,
+  ModalHeaderComponent,
 } from './lib/modal.component';
-export {
-    RouteModalComponent,
-    RouteModalComponent as RouteModal
-} from './lib/router-modal.component';
 export { ModalModule } from './lib/modal.module';
+export {
+  RouteModalComponent as RouteModal,
+  RouteModalComponent,
+} from './lib/router-modal.component';

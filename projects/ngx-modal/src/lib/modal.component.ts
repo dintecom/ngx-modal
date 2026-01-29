@@ -1,39 +1,43 @@
 import {
+  ChangeDetectorRef,
   Component,
-  Input,
-  Output,
-  EventEmitter,
   ElementRef,
-  ViewChild,
+  EventEmitter,
+  Input,
   OnDestroy,
-  ChangeDetectorRef
+  Output,
+  ViewChild,
 } from '@angular/core';
 
 @Component({
+  standalone: false,
   selector: 'modal-header',
   template: `
     <ng-content></ng-content>
-  `
+  `,
 })
 export class ModalHeaderComponent {}
 
 @Component({
+  standalone: false,
   selector: 'modal-content',
   template: `
     <ng-content></ng-content>
-  `
+  `,
 })
 export class ModalContentComponent {}
 
 @Component({
+  standalone: false,
   selector: 'modal-footer',
   template: `
     <ng-content></ng-content>
-  `
+  `,
 })
 export class ModalFooterComponent {}
 
 @Component({
+  standalone: false,
   selector: 'modal',
   template: `
     <div
@@ -88,7 +92,7 @@ export class ModalFooterComponent {}
         </div>
       </div>
     </div>
-  `
+  `,
 })
 export class ModalComponent implements OnDestroy {
   // -------------------------------------------------------------------------
@@ -96,7 +100,7 @@ export class ModalComponent implements OnDestroy {
   // -------------------------------------------------------------------------
 
   @Input()
-  public modalClass: string;
+  public modalClass!: string;
 
   @Input()
   public closeOnEscape = true;
@@ -105,16 +109,16 @@ export class ModalComponent implements OnDestroy {
   public closeOnOutsideClick = true;
 
   @Input()
-  public title: string;
+  public title!: string;
 
   @Input()
   public hideCloseButton = false;
 
   @Input()
-  public cancelButtonLabel: string;
+  public cancelButtonLabel!: string;
 
   @Input()
-  public submitButtonLabel: string;
+  public submitButtonLabel!: string;
 
   // -------------------------------------------------------------------------
   // Outputs
@@ -140,9 +144,9 @@ export class ModalComponent implements OnDestroy {
   // -------------------------------------------------------------------------
 
   @ViewChild('modalRoot', { static: true })
-  public modalRoot: ElementRef;
+  public modalRoot!: ElementRef;
 
-  private backdropElement: HTMLElement;
+  private backdropElement!: HTMLElement;
 
   // -------------------------------------------------------------------------
   // Constructor
@@ -159,7 +163,7 @@ export class ModalComponent implements OnDestroy {
   ngOnDestroy() {
     document.body.className = document.body.className.replace(
       /modal-open\b/,
-      ''
+      '',
     );
     if (
       this.backdropElement &&
@@ -192,7 +196,7 @@ export class ModalComponent implements OnDestroy {
     this.backdropElement && document.body.removeChild(this.backdropElement);
     document.body.className = document.body.className.replace(
       /modal-open\b/,
-      ''
+      '',
     );
     this.cdr.detectChanges();
   }
