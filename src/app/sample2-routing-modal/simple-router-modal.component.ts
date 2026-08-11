@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ModalModule } from '../../../projects/ngx-modal/src/public-api';
 
@@ -17,6 +17,7 @@ import { ModalModule } from '../../../projects/ngx-modal/src/public-api';
       </modal-footer>
     </route-modal>
   `,
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [RouterLink, ModalModule],
 })
 export class SimpleRouterModalComponent {}

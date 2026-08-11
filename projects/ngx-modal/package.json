@@ -1,6 +1,6 @@
 {
   "name": "ngx-modal",
-  "version": "21.0.0",
+  "version": "22.0.0",
   "description": "Open modal window (dialog box) for your Angular applications using Bootstrap",
   "license": "MIT",
   "readmeFilename": "README.md",
@@ -22,8 +22,8 @@
     "angular-modal"
   ],
   "peerDependencies": {
-    "@angular/common": "^21.0.0",
-    "@angular/core": "^21.0.0"
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0"
   },
   "dependencies": {
     "tslib": "^2.5.0"

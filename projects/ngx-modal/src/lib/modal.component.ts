@@ -1,8 +1,10 @@
 import {
+  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   OnDestroy,
   Output,
@@ -12,6 +14,7 @@ import {
 @Component({
   standalone: false,
   selector: 'modal-header',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <ng-content></ng-content>
   `,
@@ -21,6 +24,7 @@ export class ModalHeaderComponent {}
 @Component({
   standalone: false,
   selector: 'modal-content',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <ng-content></ng-content>
   `,
@@ -30,6 +34,7 @@ export class ModalContentComponent {}
 @Component({
   standalone: false,
   selector: 'modal-footer',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <ng-content></ng-content>
   `,
@@ -39,6 +44,7 @@ export class ModalFooterComponent {}
 @Component({
   standalone: false,
   selector: 'modal',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div
       class="modal"
@@ -95,6 +101,8 @@ export class ModalFooterComponent {}
   `,
 })
 export class ModalComponent implements OnDestroy {
+  private readonly cdr = inject(ChangeDetectorRef);
+
   // -------------------------------------------------------------------------
   // Inputs
   // -------------------------------------------------------------------------
@@ -152,7 +160,7 @@ export class ModalComponent implements OnDestroy {
   // Constructor
   // -------------------------------------------------------------------------
 
-  constructor(private readonly cdr: ChangeDetectorRef) {
+  constructor() {
     this.createBackDrop();
   }
 

@@ -1,7 +1,9 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   OnDestroy,
   OnInit,
@@ -13,6 +15,7 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 @Component({
   standalone: false,
   selector: 'route-modal',
+  changeDetection: ChangeDetectionStrategy.Eager,
   template: `
     <div
       class="modal route-modal"
@@ -69,6 +72,9 @@ import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
   `,
 })
 export class RouteModalComponent implements OnInit, OnDestroy {
+  private readonly router = inject(Router);
+  private readonly activatedRoute = inject(ActivatedRoute);
+
   // -------------------------------------------------------------------------
   // Inputs
   // -------------------------------------------------------------------------
@@ -131,10 +137,7 @@ export class RouteModalComponent implements OnInit, OnDestroy {
   // Constructor
   // -------------------------------------------------------------------------
 
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {
+  constructor() {
     this.createBackDrop();
   }
 

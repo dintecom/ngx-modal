@@ -25,6 +25,7 @@ export default defineConfig(
       "@angular-eslint/prefer-inject": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-unused-expressions": "off",
+      "@angular-eslint/prefer-on-push-component-change-detection": "off",
     },
   },
   {
